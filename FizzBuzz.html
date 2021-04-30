@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Odin Fundamentals Fizz Buzz by Steve Deck</title>
+  <style>
+    input {
+      font-size: 2em;
+      margin: 10px 1px 0;
+    }
+  </style>
+</head>
+<body>
+<!--fizzbuzz program:
+interface: number input on html
+inputs: number from user
+outputs: series of numbers from 1 to x where numbers divisible by 3 say 'Fizz'
+         and numbers divisible by 5 say 'Buzz'
+
+-->
+
+  <input class="numberInput" type="text">
+
+  <p></p>
+
+  <script>
+    const input = document.querySelector('.numberInput');
+    const para = document.querySelector('p');
+    function FizzBuzz(num) {
+      let x = '1';
+      for (let step = 2; step <= num; step++) {
+        test3 = step % 3;
+        test5 = step % 5;
+        if (test5 < 1 && test3 < 1) {
+        result = 'FizzBuzz';
+        } else if(test5 < 1) {
+        result = 'Buzz';
+        } else if(test3 < 1){
+        result = 'Fizz';
+        } else {
+        result = step;
+        }
+        
+      x += ', ' + result;
+
+      }
+      return x;
+    }
+
+
+    input.onchange = function() {
+      const num = input.value;
+      if (isNaN(num)) {
+        para.textContent = 'You need to enter a number!';
+      } else {
+        para.textContent = FizzBuzz(num) + '... ';
+      }
+    }
+
+
+
+  </script>
